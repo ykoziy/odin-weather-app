@@ -1,0 +1,15 @@
+{
+  "name": "odin-weather-app",
+  "version": "1.0.0",
+  "description": "Odin project weather app, shows weather...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuriy Koziy",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
+}
