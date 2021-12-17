@@ -14,4 +14,4 @@ async function fetchWeather(url) {
   return data;
 }
 
-export { currentWeatherUrl, fetchWeather };
+export { currentWeatherUrl, forecastWeatherUrl, fetchWeather };
