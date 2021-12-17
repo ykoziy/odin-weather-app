@@ -1,7 +1,7 @@
 import * as api from './apiFunctions.js';
 
 async function test() {
-  let z = await api.fetchWeather('Pittsburgh');
+  let z = await api.fetchWeather(api.currentWeatherUrl('Pittsburgh'));
   console.log(z);
 }
 
