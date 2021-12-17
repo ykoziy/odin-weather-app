@@ -4,6 +4,10 @@ function currentWeatherUrl(cityName) {
   return `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
 }
 
+function forecastWeatherUrl(cityName) {
+  return `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}`;
+}
+
 async function fetchWeather(url) {
   const response = await fetch(url, { mode: 'cors' });
   const data = await response.json();
