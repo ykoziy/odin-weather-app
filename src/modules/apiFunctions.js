@@ -4,8 +4,8 @@ function currentWeatherUrl(cityName) {
   return `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
 }
 
-function forecastWeatherUrl(cityName) {
-  return `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}`;
+function forecastWeatherUrl(lat, lon) {
+  return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,alerts&appid=${API_KEY}`;
 }
 
 async function fetchWeather(url) {
