@@ -18,4 +18,25 @@ function processWeatherData(json) {
   return data;
 }
 
-export { processWeatherData };
+function processForecastData(json) {
+  const data = { dailyForecast: [], hourlyForecast: [] };
+  json.daily.forEach((day) => {
+    let item = {};
+    item.tempMin = day.temp.min;
+    item.tempMax = day.temp.max;
+    item.conditions = day.weather[0].description;
+    data.dailyForecast.push(item);
+  });
+
+  json.hourly.forEach((hour) => {
+    let item = {};
+    item.dt = hour.dt;
+    item.temp = hour.temp;
+    item.conditions = hour.weather[0].description;
+    data.hourlyForecast.push(item);
+  });
+
+  return data;
+}
+
+export { processWeatherData, processForecastData };
