@@ -22,6 +22,7 @@ function processForecastData(json) {
   const data = { dailyForecast: [], hourlyForecast: [] };
   json.daily.slice(1).forEach((day) => {
     let item = {};
+    item.dt = day.dt;
     item.tempMin = day.temp.min;
     item.tempMax = day.temp.max;
     item.conditions = day.weather[0].description;
