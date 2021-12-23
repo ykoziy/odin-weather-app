@@ -1,4 +1,8 @@
-import { kelvinToCelcius, kelvinToFahrenheit } from '../util.js';
+import {
+  kelvinToCelcius,
+  kelvinToFahrenheit,
+  UnitConversion,
+} from '../util.js';
 
 class RenderForecast {
   constructor(weatherData, containerClass, isHourly = false, isMetric = false) {
@@ -25,31 +29,21 @@ class RenderForecast {
   }
 
   #cardTemperature(parentElement, data) {
+    const converter = new UnitConversion(this.isMetric);
     if (data.tempMax && data.tempMin) {
       let p1 = document.createElement('p');
-      let tempMax, tempMin;
-      if (this.isMetric) {
-        tempMax = `${kelvinToCelcius(data.tempMax)} C`;
-        tempMin = `${kelvinToCelcius(data.tempMin)} C`;
-      } else {
-        tempMax = `${kelvinToFahrenheit(data.tempMax)} F`;
-        tempMin = `${kelvinToFahrenheit(data.tempMin)} F`;
-      }
-      p1.innerHTML = tempMax;
+      const tempMax = converter.convertTemperature(data.tempMax);
+      p1.innerHTML = `${tempMax[0]} ${tempMax[1]}`;
       parentElement.appendChild(p1);
 
       let p2 = document.createElement('p');
-      p2.innerHTML = tempMin;
+      const tempMin = converter.convertTemperature(data.tempMin);
+      p2.innerHTML = `${tempMin[0]} ${tempMin[1]}`;
       parentElement.appendChild(p2);
     } else {
-      let temp;
-      if (this.isMetric) {
-        temp = `${kelvinToCelcius(data.temp)} C`;
-      } else {
-        temp = `${kelvinToFahrenheit(data.temp)} F`;
-      }
       let p1 = document.createElement('p');
-      p1.innerHTML = temp;
+      const temp = converter.convertTemperature(data.temp);
+      p1.innerHTML = `${temp[0]} ${temp[1]}`;
       parentElement.appendChild(p1);
     }
   }
