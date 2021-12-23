@@ -1,3 +1,5 @@
+import { UnitConversion } from '../util.js';
+
 function getDay(dayNum) {
   const days = [
     'Sunday',
@@ -18,7 +20,16 @@ class RenderWeather {
     this.container = document.querySelector(containerClass);
   }
 
+  set isMetric(metric) {
+    this._isMetric = metric;
+  }
+
+  get isMetric() {
+    return this._isMetric;
+  }
+
   #renderMainWeather(parentElement, weatherData) {
+    const converter = new UnitConversion(this.isMetric);
     let cityNameHeading = document.createElement('h1');
     cityNameHeading.innerHTML = weatherData.city;
     parentElement.appendChild(cityNameHeading);
@@ -33,7 +44,8 @@ class RenderWeather {
     parentElement.appendChild(asOfHeading);
 
     let tempPar = document.createElement('p');
-    tempPar.innerHTML = `${weatherData.temp} K`;
+    const temperature = converter.convertTemperature(weatherData.temp);
+    tempPar.innerHTML = `${temperature[0]} ${temperature[1]}`;
     parentElement.appendChild(tempPar);
 
     let conditionsPar = document.createElement('p');
@@ -42,8 +54,12 @@ class RenderWeather {
   }
 
   #renderOtherConditions(parentElement, weatherData) {
+    const converter = new UnitConversion(this.isMetric);
     let feelsLikePar = document.createElement('p');
-    feelsLikePar.innerHTML = `Feels like: ${weatherData.tempFeelsLike} K`;
+    const tempFeelsLike = converter.convertTemperature(
+      weatherData.tempFeelsLike,
+    );
+    feelsLikePar.innerHTML = `Feels like: ${tempFeelsLike[0]} ${tempFeelsLike[1]}`;
     parentElement.appendChild(feelsLikePar);
 
     let humidityPar = document.createElement('p');
@@ -51,15 +67,18 @@ class RenderWeather {
     parentElement.appendChild(humidityPar);
 
     let pressurePar = document.createElement('p');
-    pressurePar.innerHTML = `Pressure: ${weatherData.pressure} hPa`;
+    const pressure = converter.convertPressure(weatherData.pressure);
+    pressurePar.innerHTML = `Pressure: ${pressure[0]} ${pressure[1]}`;
     parentElement.appendChild(pressurePar);
 
     let visibilityPar = document.createElement('p');
-    visibilityPar.innerHTML = `Visibility: ${weatherData.visibility} m`;
+    const visibility = converter.convertDistance(weatherData.visibility);
+    visibilityPar.innerHTML = `Visibility: ${visibility[0]} ${visibility[1]}`;
     parentElement.appendChild(visibilityPar);
 
     let windPar = document.createElement('p');
-    windPar.innerHTML = `Wind ${weatherData.windDir} at ${weatherData.windSpeed} m/s`;
+    const speed = converter.convertSpeed(weatherData.windSpeed);
+    windPar.innerHTML = `Wind ${weatherData.windDir} at ${speed[0]} ${speed[1]}`;
     parentElement.appendChild(windPar);
   }
 
