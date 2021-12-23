@@ -1,8 +1,4 @@
-import {
-  kelvinToCelcius,
-  kelvinToFahrenheit,
-  UnitConversion,
-} from '../util.js';
+import { UnitConversion } from '../util.js';
 
 class RenderForecast {
   constructor(weatherData, containerClass, isHourly = false, isMetric = false) {
