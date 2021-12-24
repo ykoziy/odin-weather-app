@@ -37,9 +37,15 @@ class RenderWeather {
     let asOfHeading = document.createElement('h2');
     //unix time in api is seconds...
     //JS date is always local time.....
-    let date = new Date(weatherData.dt * 1000);
-    let day = getDay(date.getDay());
-    asOfHeading.innerHTML = `${day} and 11:11 PM`;
+    let date = new Date(weatherData.dt * 1000 + weatherData.timezone * 1000);
+    let day = getDay(date.getUTCDay());
+    let locationTime = date.toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+      timeZone: 'UTC',
+    });
+    asOfHeading.innerHTML = `${day} ${locationTime}`;
 
     parentElement.appendChild(asOfHeading);
 
