@@ -4,6 +4,8 @@ function processWeatherData(json) {
   data.city = json.name;
   data.dt = json.dt;
   data.timezone = json.timezone;
+  data.lon = json.coord.lon;
+  data.lat = json.coord.lat;
   data.weather.conditions = json.weather[0].description;
   data.weather.temp = json.main.temp;
   data.weather.tempMin = json.main.temp_min;
