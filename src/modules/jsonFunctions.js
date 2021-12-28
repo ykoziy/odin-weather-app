@@ -22,6 +22,7 @@ function processWeatherData(json) {
 
 function processForecastData(json) {
   const data = { dailyForecast: [], hourlyForecast: [] };
+  data.timezone = json.timezone_offset;
   json.daily.slice(1).forEach((day) => {
     let item = {};
     item.dt = day.dt;
