@@ -76,4 +76,11 @@ class UnitConversion {
   }
 }
 
-export { UnitConversion };
+function capitilizeWords(str) {
+  return str
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.substr(1))
+    .join(' ');
+}
+
+export { UnitConversion, capitilizeWords };
