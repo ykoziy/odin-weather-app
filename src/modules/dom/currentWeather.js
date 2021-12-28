@@ -1,4 +1,4 @@
-import { UnitConversion } from '../util.js';
+import { UnitConversion, capitalizeWords } from '../util.js';
 
 function getDay(dayNum) {
   const days = [
@@ -78,7 +78,7 @@ class RenderWeather {
     parentElement.appendChild(tempPar);
 
     let conditionsPar = document.createElement('p');
-    conditionsPar.innerHTML = weatherData.conditions;
+    conditionsPar.innerHTML = capitalizeWords(weatherData.conditions);
     parentElement.appendChild(conditionsPar);
   }
 
