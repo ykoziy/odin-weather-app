@@ -102,6 +102,12 @@ body {
   padding: 15px;
 }
 
+.current-weather-left img {
+  width: 120px;
+  height: auto;
+  text-align: center;
+}
+
 .weather-forecast-container {
   display: flex;
   flex-direction: column;
@@ -120,7 +126,7 @@ body {
 
 .weather-forecast-cards {
   display: flex;
-  height: 100px;
+  height: 150px;
   padding: 0 15px;
   gap: 25px;
   overflow-x: auto;
@@ -139,6 +145,12 @@ body {
   flex-shrink: 0;
   width: 130px;
   flex-basis: 130px;
+}
+
+.forecast-card img {
+  width: 75px;
+  height: auto;
+  text-align: center;
 }
 
 .loading {
