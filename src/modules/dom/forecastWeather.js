@@ -61,10 +61,13 @@ class RenderForecast {
       this.weatherData.hourlyForecast.forEach((hour, index) => {
         let card = document.createElement('div');
         card.className = 'forecast-card';
-        let time = new Date(hour.dt * 1000).toLocaleString('en-US', {
+        let time = new Date(
+          hour.dt * 1000 + this.weatherData.timezone * 1000,
+        ).toLocaleString('en-US', {
           hour: 'numeric',
           minute: 'numeric',
           hour12: true,
+          timeZone: 'UTC',
         });
         this.#renderCard(card, time, hour);
         this.container.appendChild(card);
@@ -73,8 +76,11 @@ class RenderForecast {
       this.weatherData.dailyForecast.forEach((day, index) => {
         let card = document.createElement('div');
         card.className = 'forecast-card';
-        let dayWeek = new Date(day.dt * 1000).toLocaleDateString('en-US', {
+        let dayWeek = new Date(
+          day.dt * 1000 + this.weatherData.timezone * 1000,
+        ).toLocaleDateString('en-US', {
           weekday: 'long',
+          timeZone: 'UTC',
         });
         this.#renderCard(card, dayWeek, day);
         this.container.appendChild(card);
