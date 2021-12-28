@@ -1601,12 +1601,17 @@ async function getWeatherForLocation(locationName) {
 }
 
 async function findWeather(evt) {
-  clearWeather();
   let locationValue = document.querySelector('.search-box-input').value;
   if (locationValue) {
-    await getWeatherForLocation(locationValue);
+    try {
+      await getWeatherForLocation(locationValue);
+    } catch (e) {
+      console.log('Some error occured.');
+      return;
+    }
+    clearWeather();
+    renderWeather();
   }
-  renderWeather();
 }
 
 async function renderInitialWeather() {
