@@ -58,7 +58,7 @@ class RenderForecast {
 
   render() {
     if (this._isHourly === true) {
-      this.weatherData.hourlyForecast.forEach((hour, index) => {
+      this.weatherData.hourlyForecast.slice(1, 25).forEach((hour, index) => {
         let card = document.createElement('div');
         card.className = 'forecast-card';
         let time = new Date(
