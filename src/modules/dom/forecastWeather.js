@@ -1,4 +1,4 @@
-import { UnitConversion, capitalizeWords } from '../util.js';
+import { UnitConversion, capitalizeWords, getWeatherIcon } from '../util.js';
 
 class RenderForecast {
   constructor(weatherData, containerClass, isHourly = false, isMetric = false) {
@@ -50,10 +50,16 @@ class RenderForecast {
     parentElement.appendChild(p1);
 
     this.#cardTemperature(parentElement, data);
-
-    let p4 = document.createElement('p');
-    p4.innerHTML = `${capitalizeWords(data.conditions)}`;
-    parentElement.appendChild(p4);
+    const iconUrl = getWeatherIcon(data.conditions);
+    if (iconUrl) {
+      let img = document.createElement('img');
+      img.src = iconUrl;
+      parentElement.appendChild(img);
+    } else {
+      let p4 = document.createElement('p');
+      p4.innerHTML = `${capitalizeWords(data.conditions)}`;
+      parentElement.appendChild(p4);
+    }
   }
 
   render() {
