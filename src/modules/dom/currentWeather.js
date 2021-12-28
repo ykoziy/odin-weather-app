@@ -13,6 +13,29 @@ function getDay(dayNum) {
   return days[dayNum];
 }
 
+function setBackgroundImage(weatherConditions) {
+  const weatherBackgrounds = {
+    clear: 'img/weather-background/clear-bg.jpg',
+    clouds: 'img/weather-background/clouds-bg.jpg',
+    rain: 'img/weather-background/rain-bg.jpg',
+    snow: 'img/weather-background/snow-bg.jpg',
+    thunder: 'img/weather-background/snow-bg.jpg',
+  };
+
+  const body = document.getElementsByTagName('body')[0];
+  if (weatherConditions.includes('clear')) {
+    body.style.backgroundImage = `url(${weatherBackgrounds.clear})`;
+  } else if (weatherConditions.includes('clouds')) {
+    body.style.backgroundImage = `url(${weatherBackgrounds.clouds})`;
+  } else if (weatherConditions.includes('rain')) {
+    body.style.backgroundImage = `url(${weatherBackgrounds.rain})`;
+  } else if (weatherConditions.includes('snow')) {
+    body.style.backgroundImage = `url(${weatherBackgrounds.snow})`;
+  } else if (weatherConditions.includes('thunder')) {
+    body.style.backgroundImage = `url(${weatherBackgrounds.thunder})`;
+  }
+}
+
 class RenderWeather {
   constructor(weatherData, containerClass, isMetric = false) {
     this.weatherData = weatherData;
@@ -99,6 +122,7 @@ class RenderWeather {
       temp: this.weatherData.weather.temp,
       conditions: this.weatherData.weather.conditions,
     };
+    setBackgroundImage(mainWeatherData.conditions);
     this.#renderMainWeather(mainWeatherDiv, mainWeatherData);
 
     let otherConditionsDiv = document.createElement('div');
