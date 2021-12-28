@@ -1,4 +1,4 @@
-import { UnitConversion } from '../util.js';
+import { UnitConversion, capitalizeWords } from '../util.js';
 
 class RenderForecast {
   constructor(weatherData, containerClass, isHourly = false, isMetric = false) {
@@ -52,7 +52,7 @@ class RenderForecast {
     this.#cardTemperature(parentElement, data);
 
     let p4 = document.createElement('p');
-    p4.innerHTML = `${data.conditions}`;
+    p4.innerHTML = `${capitalizeWords(data.conditions)}`;
     parentElement.appendChild(p4);
   }
 
