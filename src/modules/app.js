@@ -1604,8 +1604,9 @@ async function findWeather(evt) {
   clearWeather();
   let locationValue = document.querySelector('.search-box-input').value;
   if (locationValue) {
-    getWeatherForLocation(locationValue);
+    await getWeatherForLocation(locationValue);
   }
+  renderWeather();
 }
 
 async function renderInitialWeather() {
