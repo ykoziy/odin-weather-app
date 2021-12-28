@@ -1,4 +1,4 @@
-import { UnitConversion, capitalizeWords } from '../util.js';
+import { UnitConversion, capitalizeWords, getWeatherIcon } from '../util.js';
 
 function getDay(dayNum) {
   const days = [
@@ -76,10 +76,16 @@ class RenderWeather {
     const temperature = converter.convertTemperature(weatherData.temp);
     tempPar.innerHTML = `${temperature[0]} ${temperature[1]}`;
     parentElement.appendChild(tempPar);
-
-    let conditionsPar = document.createElement('p');
-    conditionsPar.innerHTML = capitalizeWords(weatherData.conditions);
-    parentElement.appendChild(conditionsPar);
+    const iconUrl = getWeatherIcon(weatherData.conditions);
+    if (iconUrl) {
+      let conditionsImg = document.createElement('img');
+      conditionsImg.src = iconUrl;
+      parentElement.appendChild(conditionsImg);
+    } else {
+      let conditionsPar = document.createElement('p');
+      conditionsPar.innerHTML = capitalizeWords(weatherData.conditions);
+      parentElement.appendChild(conditionsPar);
+    }
   }
 
   #renderOtherConditions(parentElement, weatherData) {
