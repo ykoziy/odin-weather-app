@@ -80,6 +80,7 @@ class RenderWeather {
     if (iconUrl) {
       let conditionsImg = document.createElement('img');
       conditionsImg.src = iconUrl;
+      conditionsImg.className = 'w-icon';
       parentElement.appendChild(conditionsImg);
     } else {
       let conditionsPar = document.createElement('p');
