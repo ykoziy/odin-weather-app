@@ -54,10 +54,11 @@ class RenderForecast {
     if (iconUrl) {
       let img = document.createElement('img');
       img.src = iconUrl;
+      img.className = 'w-icon';
       parentElement.appendChild(img);
     } else {
       let p4 = document.createElement('p');
-      p4.innerHTML = `${capitalizeWords(data.conditions)}`;
+      p4.innerHTML = capitalizeWords(data.conditions);
       parentElement.appendChild(p4);
     }
   }
