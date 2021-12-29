@@ -75,6 +75,7 @@ class RenderWeather {
     let tempPar = document.createElement('p');
     const temperature = converter.convertTemperature(weatherData.temp);
     tempPar.innerHTML = `${temperature[0]} ${temperature[1]}`;
+    tempPar.id = 'main-w-temperature';
     parentElement.appendChild(tempPar);
     const iconUrl = getWeatherIcon(weatherData.conditions);
     if (iconUrl) {
@@ -84,6 +85,7 @@ class RenderWeather {
       parentElement.appendChild(conditionsImg);
     } else {
       let conditionsPar = document.createElement('p');
+      conditionsPar.id = 'main-w-conditions';
       conditionsPar.innerHTML = capitalizeWords(weatherData.conditions);
       parentElement.appendChild(conditionsPar);
     }
