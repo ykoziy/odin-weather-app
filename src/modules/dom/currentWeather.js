@@ -74,7 +74,7 @@ class RenderWeather {
 
     let tempPar = document.createElement('p');
     const temperature = converter.convertTemperature(weatherData.temp);
-    tempPar.innerHTML = `${temperature[0]} ${temperature[1]}`;
+    tempPar.innerHTML = `${temperature[0]} °${temperature[1]}`;
     tempPar.id = 'main-w-temperature';
     parentElement.appendChild(tempPar);
     const iconUrl = getWeatherIcon(weatherData.conditions);
@@ -97,7 +97,7 @@ class RenderWeather {
     const tempFeelsLike = converter.convertTemperature(
       weatherData.tempFeelsLike,
     );
-    feelsLikePar.innerHTML = `Feels like: ${tempFeelsLike[0]} ${tempFeelsLike[1]}`;
+    feelsLikePar.innerHTML = `Feels like: ${tempFeelsLike[0]} °${tempFeelsLike[1]}`;
     parentElement.appendChild(feelsLikePar);
 
     let humidityPar = document.createElement('p');
