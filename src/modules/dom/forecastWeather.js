@@ -28,16 +28,19 @@ class RenderForecast {
     const converter = new UnitConversion(this.isMetric);
     if (data.tempMax && data.tempMin) {
       let p1 = document.createElement('p');
+      p1.className = 'forecast-card-max-temp';
       const tempMax = converter.convertTemperature(data.tempMax);
       p1.innerHTML = `${tempMax[0]} ${tempMax[1]}`;
       parentElement.appendChild(p1);
 
       let p2 = document.createElement('p');
+      p2.className = 'forecast-card-min-temp';
       const tempMin = converter.convertTemperature(data.tempMin);
       p2.innerHTML = `${tempMin[0]} ${tempMin[1]}`;
       parentElement.appendChild(p2);
     } else {
       let p1 = document.createElement('p');
+      p1.className = 'forecast-card-temp';
       const temp = converter.convertTemperature(data.temp);
       p1.innerHTML = `${temp[0]} ${temp[1]}`;
       parentElement.appendChild(p1);
@@ -46,6 +49,7 @@ class RenderForecast {
 
   #renderCard(parentElement, cardTitle, data) {
     let p1 = document.createElement('p');
+    p1.className = 'forecast-card-title';
     p1.innerHTML = `${cardTitle}`;
     parentElement.appendChild(p1);
 
@@ -58,6 +62,7 @@ class RenderForecast {
       parentElement.appendChild(img);
     } else {
       let p4 = document.createElement('p');
+      p4.className = 'forecast-card-conditions';
       p4.innerHTML = capitalizeWords(data.conditions);
       parentElement.appendChild(p4);
     }
