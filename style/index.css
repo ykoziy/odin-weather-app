@@ -138,14 +138,21 @@ h2 {
   padding: 0 15px;
 }
 
+.weather-forecast-cards-container {
+  display: flex;
+  height: 150px;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
 .weather-forecast-cards {
   display: flex;
   height: 150px;
-  padding: 0 15px;
   gap: 25px;
-  overflow-x: hidden;
+  padding: 0 15px;
   justify-content: space-between;
-  position: relative;
+  position: absolute;
   width: 100%;
 }
 
