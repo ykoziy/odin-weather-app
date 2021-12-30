@@ -1575,10 +1575,13 @@ function setUnits(isMetric) {
 }
 
 function switchForecast(isHourly) {
+  const hourlyControls = document.querySelector('.page-hours');
   if (isHourly) {
     forecastWeather.isHourly = true;
+    hourlyControls.style.display = 'block';
   } else {
     forecastWeather.isHourly = false;
+    hourlyControls.style.display = 'none';
   }
   clearForecastWeather();
   forecastWeather.render();
