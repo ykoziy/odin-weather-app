@@ -172,6 +172,10 @@ h2 {
   flex-basis: 130px;
 }
 
+.hidden {
+  display: none;
+}
+
 .forecast-card-title {
   font-size: 2.1rem;
   font-weight: bold;
