@@ -149,8 +149,6 @@ h2 {
 .weather-forecast-cards {
   display: flex;
   height: 150px;
-  gap: 25px;
-  padding: 0 15px;
   justify-content: space-between;
   position: absolute;
   width: 100%;
