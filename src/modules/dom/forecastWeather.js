@@ -82,6 +82,9 @@ class RenderForecast {
           timeZone: 'UTC',
         });
         this.#renderCard(card, time, hour);
+        if (index > 6) {
+          card.classList.toggle('hidden');
+        }
         this.container.appendChild(card);
       });
     } else {
