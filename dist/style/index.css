@@ -20,6 +20,14 @@ body {
   background-size: cover;
 }
 
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -102,10 +110,15 @@ body {
   padding: 15px;
 }
 
-.current-weather-left img {
+.current-weather-left .w-icon {
   width: 120px;
   height: auto;
   text-align: center;
+  align-self: center;
+}
+
+#main-w-temperature {
+  font-size: 6rem;
 }
 
 .weather-forecast-container {
@@ -122,6 +135,7 @@ body {
   margin: 10px 0;
   display: flex;
   width: 100%;
+  padding: 0 15px;
 }
 
 .weather-forecast-cards {
@@ -129,7 +143,7 @@ body {
   height: 150px;
   padding: 0 15px;
   gap: 25px;
-  overflow-x: auto;
+  overflow-x: hidden;
   justify-content: space-between;
   position: relative;
   width: 100%;
@@ -147,7 +161,18 @@ body {
   flex-basis: 130px;
 }
 
-.forecast-card img {
+.forecast-card-title {
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
+.forecast-card-max-temp,
+.forecast-card-min-temp,
+.forecast-card-temp {
+  font-size: 2rem;
+}
+
+.forecast-card .w-icon {
   width: 75px;
   height: auto;
   text-align: center;
