@@ -116,6 +116,23 @@ h2 {
   align-self: center;
 }
 
+.current-weather-right {
+  font-size: 2.5rem;
+  justify-content: space-around;
+}
+
+.current-weather-right div {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.current-weather-right div img {
+  height: 32px;
+  width: 32px;
+}
+
 #main-w-temperature {
   font-size: 6rem;
 }
