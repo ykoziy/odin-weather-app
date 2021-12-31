@@ -2,6 +2,7 @@ import * as api from './apiFunctions.js';
 import * as json from './jsonFunctions.js';
 import { renderCurrentWeather, RenderWeather } from './dom/currentWeather.js';
 import { RenderForecast } from './dom/forecastWeather.js';
+import { toggleActiveButton } from './util.js';
 
 const dataJson = {
   coord: {
@@ -1574,8 +1575,10 @@ function setUnits(isMetric) {
   renderWeather();
 }
 
-function switchForecast(isHourly) {
+function switchForecast(event, isHourly) {
   const hourlyControls = document.querySelector('.page-hours');
+  const buttons = document.querySelectorAll('.forecast-switch button');
+  toggleActiveButton(buttons, event.target);
   if (isHourly) {
     forecastWeather.isHourly = true;
     hourlyControls.style.display = 'block';
@@ -1637,10 +1640,10 @@ function init() {
 
   document
     .getElementById('daily-btn')
-    .addEventListener('click', (event) => switchForecast(false));
+    .addEventListener('click', (event) => switchForecast(event, false));
   document
     .getElementById('hourly-btn')
-    .addEventListener('click', (event) => switchForecast(true));
+    .addEventListener('click', (event) => switchForecast(event, true));
 }
 
 export { init };

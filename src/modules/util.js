@@ -109,4 +109,13 @@ function getWeatherIcon(weatherConditions) {
   }
 }
 
-export { UnitConversion, capitalizeWords, getWeatherIcon };
+function toggleActiveButton(buttons, target) {
+  buttons.forEach((button) => {
+    if (button === target && !button.classList.contains('active-btn')) {
+      return button.classList.add('active-btn');
+    }
+    return button.classList.remove('active-btn');
+  });
+}
+
+export { UnitConversion, capitalizeWords, getWeatherIcon, toggleActiveButton };
