@@ -91,33 +91,64 @@ class RenderWeather {
     }
   }
 
+  #renderOtherConditionsDiv(parentElement, className, iconLink, text) {
+    const div = document.createElement('div');
+    div.className = className;
+
+    const temperatureIcon = document.createElement('img');
+    temperatureIcon.src = iconLink;
+    div.appendChild(temperatureIcon);
+
+    const par = document.createElement('p');
+    par.innerHTML = text;
+    div.appendChild(par);
+
+    parentElement.appendChild(div);
+  }
+
   #renderOtherConditions(parentElement, weatherData) {
     const converter = new UnitConversion(this.isMetric);
-    let feelsLikePar = document.createElement('p');
     const tempFeelsLike = converter.convertTemperature(
       weatherData.tempFeelsLike,
     );
-    feelsLikePar.innerHTML = `Feels like: ${tempFeelsLike[0]} °${tempFeelsLike[1]}`;
-    parentElement.appendChild(feelsLikePar);
 
-    let humidityPar = document.createElement('p');
-    humidityPar.innerHTML = `Humidity: ${weatherData.humidity}%`;
-    parentElement.appendChild(humidityPar);
+    this.#renderOtherConditionsDiv(
+      parentElement,
+      'feels-like-w',
+      'img/icons/temperature.svg',
+      `Feels like: ${tempFeelsLike[0]} °${tempFeelsLike[1]}`,
+    );
 
-    let pressurePar = document.createElement('p');
+    this.#renderOtherConditionsDiv(
+      parentElement,
+      'humidity-w',
+      'img/icons/humidity.svg',
+      `Humidity: ${weatherData.humidity}%`,
+    );
+
     const pressure = converter.convertPressure(weatherData.pressure);
-    pressurePar.innerHTML = `Pressure: ${pressure[0]} ${pressure[1]}`;
-    parentElement.appendChild(pressurePar);
+    this.#renderOtherConditionsDiv(
+      parentElement,
+      'pressure-w',
+      'img/icons/pressure.svg',
+      `Pressure: ${pressure[0]} ${pressure[1]}`,
+    );
 
-    let visibilityPar = document.createElement('p');
     const visibility = converter.convertDistance(weatherData.visibility);
-    visibilityPar.innerHTML = `Visibility: ${visibility[0]} ${visibility[1]}`;
-    parentElement.appendChild(visibilityPar);
+    this.#renderOtherConditionsDiv(
+      parentElement,
+      'visibility-w',
+      'img/icons/visibility.svg',
+      `Visibility: ${visibility[0]} ${visibility[1]}`,
+    );
 
-    let windPar = document.createElement('p');
     const speed = converter.convertSpeed(weatherData.windSpeed);
-    windPar.innerHTML = `Wind ${weatherData.windDir} at ${speed[0]} ${speed[1]}`;
-    parentElement.appendChild(windPar);
+    this.#renderOtherConditionsDiv(
+      parentElement,
+      'wind-w',
+      'img/icons/wind.svg',
+      `Wind ${weatherData.windDir} at ${speed[0]} ${speed[1]}`,
+    );
   }
 
   render() {
