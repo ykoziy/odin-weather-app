@@ -1563,7 +1563,9 @@ function renderWeather() {
   forecastWeather.render();
 }
 
-function setUnits(isMetric) {
+function setUnits(event, isMetric) {
+  const buttons = document.querySelectorAll('.unit-input button');
+  toggleActiveButton(buttons, event.target);
   if (isMetric) {
     currentWeather.isMetric = true;
     forecastWeather.isMetric = true;
@@ -1633,10 +1635,10 @@ function init() {
   document.getElementById('search-btn').addEventListener('click', findWeather);
   document
     .getElementById('metric-btn')
-    .addEventListener('click', (event) => setUnits(true));
+    .addEventListener('click', (event) => setUnits(event, true));
   document
     .getElementById('imperial-btn')
-    .addEventListener('click', (event) => setUnits(false));
+    .addEventListener('click', (event) => setUnits(event, false));
 
   document
     .getElementById('daily-btn')
