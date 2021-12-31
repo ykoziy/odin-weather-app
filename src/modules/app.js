@@ -2,7 +2,7 @@ import * as api from './apiFunctions.js';
 import * as json from './jsonFunctions.js';
 import { renderCurrentWeather, RenderWeather } from './dom/currentWeather.js';
 import { RenderForecast } from './dom/forecastWeather.js';
-import { toggleActiveButton } from './util.js';
+import { toggleActiveButton } from './dom/util.js';
 import { Carousel } from './dom/hourlyCarousel';
 
 const dataJson = {

@@ -1,4 +1,5 @@
-import { UnitConversion, capitalizeWords, getWeatherIcon } from '../util.js';
+import { UnitConversion, capitalizeWords } from '../util.js';
+import { getWeatherIcon } from './util.js';
 
 class RenderForecast {
   constructor(weatherData, containerClass, isHourly = false, isMetric = false) {
