@@ -139,6 +139,17 @@ h2 {
   gap: 25px;
 }
 
+.forecast-switch button {
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1.6rem;
+}
+
+.active-btn {
+  border-bottom: 3px solid white !important;
+}
+
 .page-hours button {
   border: none;
   background: none;
