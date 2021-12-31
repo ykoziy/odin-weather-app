@@ -1595,11 +1595,9 @@ function switchForecast(event, isHourly) {
 async function getWeatherForLocation(locationName) {
   let weatherJson = await api.fetchWeather(api.currentWeatherUrl(locationName));
   let weatherData = json.processWeatherData(weatherJson);
-  console.log(weatherJson);
   let forecastJson = await api.fetchWeather(
     api.forecastWeatherUrl(weatherData.lat, weatherData.lon),
   );
-  console.log(forecastJson);
   currentWeather = new RenderWeather(weatherData, '.weather-container', true);
 
   forecastWeather = new RenderForecast(
