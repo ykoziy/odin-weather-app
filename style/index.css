@@ -6,6 +6,8 @@
 
 :root {
   --main-weather-bg-color: rgba(53, 138, 167, 0.5);
+  --main-border-color: #4c4b52;
+  --main-app-width: 1090px;
 }
 
 html {
@@ -42,7 +44,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 1090px;
+  width: var(--main-app-width);
   margin: 5px 25px;
   font-size: 1.6rem;
 }
@@ -50,12 +52,12 @@ h2 {
 .weather-input-container {
   display: flex;
   flex-wrap: wrap;
-  width: 1090px;
+  width: var(--main-app-width);
   margin: 5px 25px;
 }
 
 .weather-error-container {
-  width: 1090px;
+  width: var(--main-app-width);
   margin: 5px 25px;
   justify-content: center;
 }
@@ -121,6 +123,7 @@ h2 {
   flex-direction: column;
   width: 300px;
   padding: 15px;
+  border: 1px solid var(--main-border-color);
 }
 
 .current-weather-left .w-icon {
@@ -151,13 +154,16 @@ h2 {
   font-size: 6rem;
 }
 
+#main-w-conditions {
+  font-size: 4.5rem;
+}
+
 .weather-forecast-container {
   display: flex;
   flex-direction: column;
-  background-color: var(--main-weather-bg-color);
   align-items: center;
   margin: 15px 25px;
-  width: 1090px;
+  width: var(--main-app-width);
   font-size: 1.6rem;
 }
 
@@ -207,8 +213,9 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: brown;
-  border: 2px solid white;
+  background-color: var(--main-weather-bg-color);
+  border: 1px solid var(--main-border-color);
+  border-radius: 15px;
   flex-shrink: 0;
   width: 130px;
   flex-basis: 130px;
