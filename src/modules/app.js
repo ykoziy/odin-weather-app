@@ -3,6 +3,7 @@ import * as json from './jsonFunctions.js';
 import { renderCurrentWeather, RenderWeather } from './dom/currentWeather.js';
 import { RenderForecast } from './dom/forecastWeather.js';
 import { toggleActiveButton } from './util.js';
+import { Carousel } from './dom/hourlyCarousel';
 
 const dataJson = {
   coord: {
@@ -1584,12 +1585,15 @@ function switchForecast(event, isHourly) {
   if (isHourly) {
     forecastWeather.isHourly = true;
     hourlyControls.style.display = 'block';
+    clearForecastWeather();
+    forecastWeather.render();
+    const carousel = new Carousel('.page-hours', '.weather-forecast-cards');
   } else {
     forecastWeather.isHourly = false;
     hourlyControls.style.display = 'none';
+    clearForecastWeather();
+    forecastWeather.render();
   }
-  clearForecastWeather();
-  forecastWeather.render();
 }
 
 async function getWeatherForLocation(locationName) {
