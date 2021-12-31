@@ -32,4 +32,16 @@ function toggleActiveButton(buttons, target) {
   });
 }
 
-export { getWeatherIcon, toggleActiveButton };
+function showError(errorBox, text) {
+  const errorContainer = document.querySelector(errorBox);
+  const errorPara = errorContainer.querySelector('.api-error-msg p');
+  errorPara.innerHTML = text;
+  errorContainer.style.display = 'flex';
+}
+
+function hideError(errorBox) {
+  const errorContainer = document.querySelector(errorBox);
+  errorContainer.style.display = 'none';
+}
+
+export { getWeatherIcon, toggleActiveButton, showError, hideError };
