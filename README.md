@@ -12,6 +12,7 @@ Project description goes here....
 - <a href="https://raw.githubusercontent.com/ykoziy/odin-weather-app/main/dist/img/weather-bacgkround/snow-bg.jpg" target="_blank">Snow background</a> Photo by <a href="https://unsplash.com/@owenjw99?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Owen Woodhouse</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 - <a href="https://raw.githubusercontent.com/ykoziy/odin-weather-app/main/dist/img/weather-bacgkround/thunder-bg.jpg" target="_blank">Thunderstorm background</a> Photo by <a href="https://unsplash.com/@mantasos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tasos Mansour</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-### Icons (<a href="https://www.svgrepo.com/" target="_blank">svgrepo.com</a>)
+### Icons
 
-- <a href="https://www.svgrepo.com/collection/fluent-ui-icons-filled/21" target="_blank">Weather icons</a> Icons from Microsoft, Fluent UI
+- <a href="https://www.svgrepo.com/collection/fluent-ui-icons-filled/21" target="_blank">Weather conditions icons</a> Icons from Microsoft, Fluent UI
+- <a href="https://www.carbondesignsystem.com/guidelines/icons/library" target="_blank">Other weather icons</a> Icons from IBM, Carbon Design System
