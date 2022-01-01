@@ -2,7 +2,13 @@ import * as api from './apiFunctions.js';
 import * as json from './jsonFunctions.js';
 import { renderCurrentWeather, RenderWeather } from './dom/currentWeather.js';
 import { RenderForecast } from './dom/forecastWeather.js';
-import { toggleActiveButton, showError, hideError } from './dom/util.js';
+import {
+  toggleActiveButton,
+  showError,
+  hideError,
+  showLoading,
+  hideLoading,
+} from './dom/util.js';
 import { Carousel } from './dom/hourlyCarousel';
 
 const dataJson = {
@@ -1614,6 +1620,7 @@ async function getWeatherForLocation(locationName) {
 
 async function findWeather(evt) {
   hideError('.weather-error-container');
+  showLoading();
   let locationValue = document.querySelector('.search-box-input').value;
   if (locationValue) {
     try {
@@ -1623,11 +1630,13 @@ async function findWeather(evt) {
         '.weather-error-container',
         'Something went bad. Make sure you typed in the right location.',
       );
+      hideLoading();
       return;
     }
     clearWeather();
     renderWeather();
   }
+  hideLoading();
 }
 
 async function renderInitialWeather() {

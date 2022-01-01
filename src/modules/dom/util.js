@@ -44,4 +44,25 @@ function hideError(errorBox) {
   errorContainer.style.display = 'none';
 }
 
-export { getWeatherIcon, toggleActiveButton, showError, hideError };
+function showLoading() {
+  const loading = document.querySelector('#loading-container');
+  if (loading.classList.contains('hidden')) {
+    loading.classList.remove('hidden');
+  }
+}
+
+function hideLoading() {
+  const loading = document.querySelector('#loading-container');
+  if (!loading.classList.contains('hidden')) {
+    loading.classList.add('hidden');
+  }
+}
+
+export {
+  getWeatherIcon,
+  toggleActiveButton,
+  showError,
+  hideError,
+  showLoading,
+  hideLoading,
+};
