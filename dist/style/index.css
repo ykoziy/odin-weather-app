@@ -222,7 +222,7 @@ h2 {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .forecast-card-title {
@@ -266,11 +266,36 @@ h2 {
   border-radius: 50%;
 }
 
+#loading-container {
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loading-msg {
+  background-color: #5f5959;
+  opacity: 80%;
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  box-shadow: 5px 5px 33px 5px rgba(0, 0, 0, 0.62);
+  border-radius: 20px;
+}
+
 .loading {
-  width: 40px;
-  height: 40px;
-  border: 6px solid white;
-  border-top: 6px solid red;
+  width: 60px;
+  height: 60px;
+  border: 12px solid white;
+  border-top: 12px solid red;
   border-radius: 100%;
   animation: spin 1s infinite linear;
 }
