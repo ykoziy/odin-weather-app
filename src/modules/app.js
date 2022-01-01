@@ -1631,7 +1631,15 @@ async function findWeather(evt) {
 }
 
 async function renderInitialWeather() {
-  await getWeatherForLocation('London');
+  try {
+    await getWeatherForLocation('London');
+  } catch (e) {
+    showError(
+      '.weather-error-container',
+      'Something went bad. Unable to get the weather information.',
+    );
+    return;
+  }
   renderWeather();
 }
 
