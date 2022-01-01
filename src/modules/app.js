@@ -1640,6 +1640,7 @@ async function findWeather(evt) {
 }
 
 async function renderInitialWeather() {
+  showLoading();
   try {
     await getWeatherForLocation('London');
   } catch (e) {
@@ -1650,6 +1651,7 @@ async function renderInitialWeather() {
     return;
   }
   renderWeather();
+  hideLoading();
 }
 
 function init() {
