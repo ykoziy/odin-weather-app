@@ -1,6 +1,24 @@
 # The Odin Project: Weather App
 
-Project description goes here....
+An app where user can search for current weather and the forecast of a location.
+
+# Features
+
+- displaying hourly and daily forecasts
+- switch between imperial and metric units
+- background image depends on the current weather conditions
+- weather conditions icons (missing icons for special weather conditions...)
+
+# <a href="https://ykoziy.github.io/odin-weather-app/" target="_blank">App</a>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ykoziy/odin-weather-app/main/app_preview.jpg" width="900"/>
+</p>
+
+## Challenges
+- creating layout the way it was planned
+- creating hourly slide display. Not remembering: A page element with relative positioning gives you the control to absolutely position children elements inside of it!!!
+- await pauses its parent function, can create unwanted side effects if you dont watch out for this
 
 ## Credits
 
