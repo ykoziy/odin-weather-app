@@ -10,8 +10,7 @@ function forecastWeatherUrl(lat, lon) {
 
 async function fetchWeather(url) {
   const response = await fetch(url, { mode: 'cors' });
-  const data = await response.json();
-  return data;
+  return await response.json();
 }
 
 export { currentWeatherUrl, forecastWeatherUrl, fetchWeather };
