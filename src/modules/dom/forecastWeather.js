@@ -89,7 +89,7 @@ class RenderForecast {
         this.container.appendChild(card);
       });
     } else {
-      this.weatherData.dailyForecast.forEach((day, index) => {
+      this.weatherData.dailyForecast.forEach((day) => {
         let card = document.createElement('div');
         card.className = 'forecast-card';
         let dayWeek = new Date(
