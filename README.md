@@ -1,5 +1,7 @@
 # The Odin Project: Weather App
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ykoziy_odin-weather-app&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ykoziy_odin-weather-app) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ykoziy_odin-weather-app&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=ykoziy_odin-weather-app) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ykoziy_odin-weather-app&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ykoziy_odin-weather-app) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ykoziy_odin-weather-app&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ykoziy_odin-weather-app)
+
 An app where user can search for current weather and the forecast of a location.
 
 # Features
