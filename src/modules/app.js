@@ -63,7 +63,7 @@ function switchForecast(event, isHourly) {
     hourlyControls.style.display = 'block';
     clearForecastWeather();
     forecastWeather.render();
-    const carousel = new Carousel('.page-hours', '.weather-forecast-cards');
+    new Carousel('.page-hours', '.weather-forecast-cards');
   } else {
     forecastWeather.isHourly = false;
     hourlyControls.style.display = 'none';
