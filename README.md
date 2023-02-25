@@ -14,7 +14,7 @@ An app where user can search for current weather and the forecast of a location.
 # <a href="https://ykoziy.github.io/odin-weather-app/" target="_blank">App</a>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ykoziy/odin-weather-app/main/app_preview.jpg" width="900"/>
+  <img src="https://raw.githubusercontent.com/ykoziy/shopping-cart/main/bean-brigade-app.png" width="900"/>
 </p>
 
 ## Challenges
